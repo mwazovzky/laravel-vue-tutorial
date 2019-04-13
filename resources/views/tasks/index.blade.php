@@ -15,20 +15,6 @@
 
 @section('content')
 <div class="container">
-    <h1>Tasks Index</h1>
-    <table class="tasks-index">
-        <tr>
-            <th class="tasks-column">ID</th>
-            <th class="tasks-column">Name</th>
-            <th class="tasks-column">Priority</th>
-        </tr>
-        @foreach($tasks as $task)
-        <tr>
-            <th class="tasks-column">{{ $task->id }}</th>
-            <th class="tasks-column">{{ $task->name }}</th>
-            <th class="tasks-column">{{ $task->priority }}</th>
-        </tr>
-        @endforeach
-    </table>
+    <tasks-index></tasks-index>
 </div>
 @endsection
