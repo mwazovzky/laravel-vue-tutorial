@@ -1814,6 +1814,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1828,6 +1851,14 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       return console.log(error);
     });
+  },
+  methods: {
+    edit: function edit(index) {
+      console.log("editing... ".concat(index));
+    },
+    destroy: function destroy(index) {
+      console.log("destroing... ".concat(index));
+    }
   }
 });
 
@@ -6290,7 +6321,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tasks-index[data-v-0f0e3ee2] { \n    border: 1px solid rgb(222, 222, 222); \n    border-collapse: collapse;\n}\n.tasks-column[data-v-0f0e3ee2] { \n    border: 1px solid rgb(222, 222, 222); \n    padding: 5px;\n}\n", ""]);
+exports.push([module.i, "\n.tasks-index[data-v-0f0e3ee2] { \n    border: 1px solid rgb(222, 222, 222); \n    border-collapse: collapse;\n}\n.tasks-column[data-v-0f0e3ee2] { \n    border: 1px solid rgb(222, 222, 222); \n    padding: 5px;\n}\n.btn[data-v-0f0e3ee2] {\n    border: 1px solid rgb(222, 222, 222);\n    border-radius: 4px;\n    padding: 2px 5px;\n    width: 100%;\n}\n.btn-edit[data-v-0f0e3ee2] {\n    background-color: rgb(0, 222, 222);\n    color: white;\n}\n.btn-destroy[data-v-0f0e3ee2] {\n    background-color: rgb(255, 0, 0);\n    color: white;\n}\n.btn-save[data-v-0f0e3ee2] {\n    background-color: rgb(0, 222, 0);\n    color: white;\n}\n.btn-reset[data-v-0f0e3ee2] {\n    background-color: rgb(255, 0, 0);\n    color: white;\n}\n", ""]);
 
 // exports
 
@@ -37823,21 +37854,89 @@ var render = function() {
       [
         _vm._m(0),
         _vm._v(" "),
-        _vm._l(_vm.tasks, function(task) {
+        _vm._l(_vm.tasks, function(task, index) {
           return _c("tr", { key: task.id }, [
-            _c("th", { staticClass: "tasks-column" }, [
+            _c("td", { staticClass: "tasks-column" }, [
               _vm._v(_vm._s(task.id))
             ]),
             _vm._v(" "),
-            _c("th", { staticClass: "tasks-column" }, [
+            _c("td", { staticClass: "tasks-column" }, [
               _vm._v(_vm._s(task.name))
             ]),
             _vm._v(" "),
-            _c("th", { staticClass: "tasks-column" }, [
+            _c("td", { staticClass: "tasks-column" }, [
               _vm._v(_vm._s(task.priority))
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "tasks-column" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-edit",
+                  on: {
+                    click: function($event) {
+                      return _vm.edit(index)
+                    }
+                  }
+                },
+                [_vm._v("Edit")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", { staticClass: "tasks-column" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-destroy",
+                  on: {
+                    click: function($event) {
+                      return _vm.destroy(index)
+                    }
+                  }
+                },
+                [_vm._v("Destroy")]
+              )
             ])
           ])
-        })
+        }),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "tasks-column" }),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c("td", { staticClass: "tasks-column" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-save",
+                on: {
+                  click: function($event) {
+                    return _vm.save(_vm.index)
+                  }
+                }
+              },
+              [_vm._v("Save")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "tasks-column" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-reset",
+                on: {
+                  click: function($event) {
+                    return _vm.reset(_vm.index)
+                  }
+                }
+              },
+              [_vm._v("Reset")]
+            )
+          ])
+        ])
       ],
       2
     )
@@ -37853,7 +37952,27 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("th", { staticClass: "tasks-column" }, [_vm._v("Name")]),
       _vm._v(" "),
-      _c("th", { staticClass: "tasks-column" }, [_vm._v("Priority")])
+      _c("th", { staticClass: "tasks-column" }, [_vm._v("Priority")]),
+      _vm._v(" "),
+      _c("th", { staticClass: "tasks-column" }),
+      _vm._v(" "),
+      _c("th", { staticClass: "tasks-column" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "tasks-column" }, [
+      _c("input", { attrs: { type: "text" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "tasks-column" }, [
+      _c("input", { attrs: { type: "text" } })
     ])
   }
 ]
